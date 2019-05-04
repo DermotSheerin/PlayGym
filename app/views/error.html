@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'Error' /}
+#{menu id:"dashboard"/}
+
+#{if validationErrors.size() > 0}
+<div class="ui warning message">
+    <i class="close icon"></i>
+    <div class="header">
+        The following errors have occured:
+    </div>
+    <ul>
+        #{list items:validationErrors, as:'err'}
+            <li>${err}</li>
+        #{/list}
+    </ul>
+    <div>
+        Click <a href=${returnURL}>here</a> to try again!
+    </div>
+</div>
+#{/if}

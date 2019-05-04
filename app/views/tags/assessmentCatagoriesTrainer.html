@@ -1,0 +1,42 @@
+<aside class="ui segment" >
+#{list items:_member.assessmentList, as:'assessment'}
+    <table class="ui celled table">
+
+        <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Chest</th>
+            <th>Thigh</th>
+            <th>Upper Arm</th>
+            <th>Waist</th>
+            <th>Hips</th>
+            <th>Comment</th>
+            <th width="50px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td> ${assessment.weight} </td>
+            <td> ${assessment.chest} </td>
+            <td> ${assessment.thigh} </td>
+            <td> ${assessment.upperArm} </td>
+            <td> ${assessment.waist} </td>
+            <td> ${assessment.hips} </td>
+            <td> ${assessment.comment} </td>
+            <td> <a href="/dashboard/${_member.id}/deleteAssessment/${assessment.id} " class="ui icon button">
+                <i class="icon trash"></i> </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <form class="ui form" action="/dashboard/${_member.id}/addComment/${assessment.id}" method="POST">
+            <div class="field">
+                <label>Comments</label>
+                <textarea rows="2" input type="text" name="comment"></textarea>
+            </div>
+            <button class="ui blue submit button">Update</button>
+        </form>
+    </div>
+#{/list}
+</aside>

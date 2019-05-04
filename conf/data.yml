@@ -1,0 +1,15 @@
+Trainer(1):
+  name: Marge Simpson
+  email: marge@simpson.com
+  password: 123456
+  role: trainer
+
+Member(2):
+  name: Homer Simpson
+  email: homer@simpson.com
+  password: 123456
+  role: member
+  gender: M
+  address: Springfield
+  height: 1.7
+  startWeight: 101.0

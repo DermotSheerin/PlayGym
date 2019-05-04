@@ -1,0 +1,87 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{if !isTrainerRole}
+    #{menu id:"dashboard"/}
+#{/if}
+#{else }
+    #{menu_trainer id:"dashboard_trainer"/}
+#{/else}
+
+<aside class="ui segment" >
+    <div class="ui center aligned two column grid">
+        <div class="four column row">
+            <div class="column">
+                <i class ="huge black user icon"></i>
+            </div>
+            <div class="column">
+                <i class ="huge tachometer alternate icon ${stats.getWeightIndicatorCSS()}"></i>
+            </div>
+            <div class="column">
+                <i class ="huge black heartbeat icon">${stats.getBmi()}</i>
+            </div>
+            <div class="column">
+                <i class ="huge black user doctor icon"></i>
+            </div>
+            <div class="column">
+                <h3>${member.getName().toUpperCase()}</h3>
+            </div>
+            <div class="column">
+                <h3>IDEAL WEIGHT INDICATOR</h3>
+            </div>
+            <div class="column">
+                <h3>BMI</h3>
+            </div>
+            <div class="column">
+                <h3>${stats.getBmiCatagory()}</h3>
+            </div>
+        </div>
+    </div>
+</aside>
+
+#{if !isTrainerRole}
+
+<form class="ui stacked segment form" action="/dashboard/addAssessment" method="POST">
+  <div class="ui equal width form">
+    <div class="ui fields">
+      <div class="ui field">
+        <strong>Weight</strong>
+        <input type="text" placeholder="00.00kg" name="weight" required>
+      </div>
+      <div class="field">
+          <strong>Chest</strong>
+        <input type="text" placeholder="00.00cm" name="chest" required>
+      </div>
+      <div class="field">
+          <strong>Thigh</strong>
+        <input type="text" placeholder="00.00cm" name="thigh" required>
+      </div>
+    </div>
+    <div class="ui fields">
+      <div class="field">
+          <strong>Upper Arm</strong>
+        <input type="text" placeholder="00.00cm" name="upperArm" required>
+      </div>
+      <div class="field">
+          <strong>Waist</strong>
+        <input type="text" placeholder="00.00cm" name="waist" required>
+      </div>
+      <div class="field">
+          <strong>Hips</strong>
+        <input type="text" placeholder="00.00cm" name="hips" required>
+      </div>
+    </div>
+  </div>
+  <button class="ui blue submit button">Add Assessment</button>
+</form>
+
+#{/if}
+
+<section>
+#{if isTrainerRole}
+  #{assessmentCatagoriesTrainer member:member/}
+  #{/if}
+#{else}
+    #{assessmentCatagoriesMember member:member/}
+    #{/else}
+</section>

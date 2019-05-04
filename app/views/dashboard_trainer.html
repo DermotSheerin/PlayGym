@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard_Trainer' /}
+
+#{menu_trainer id:"dashboard_trainer"/}
+
+#{list items:memberlist, as:'member'}
+<section class="ui segment">
+    <a href="/dashboard/member/${member.id}">
+        <h3 class="ui image header">
+            <i class="large black github icon"></i>
+            <div class="content">
+                <span style="color:#4183c4">${member.getName()}</span>
+                <div class="sub header"><strong>${member.getAssessmentList().size()} assessment(s)</strong></div>
+            </div>
+        </h3>
+    </a>
+    <a href="/dashboard/member/deleteMember/${member.id}">
+        <i class="large red trash alternate  icon"></i> </a>
+
+</section>
+#{/list}

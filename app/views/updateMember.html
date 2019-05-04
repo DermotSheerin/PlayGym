@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'memberSettings' /}
+#{menu id:"memberSettings"/}
+
+<div class="ui two column grid basic middle aligned segment">
+    <div class="column">
+        <form class="ui stacked segment form" action="/updateMember" method="POST">
+            <h3 class="ui header"> ${user.getName()}'s Details </h3>
+            <div class="two fields">
+                <div class="field">
+                    <label>Name (max length 15 charachters)</label>
+                    <input placeholder="Name" type="text" name="name" value = ${user.getName()} required maxlength="15">
+                </div>
+                <div class="field">
+                    <label>Gender (M / F)</label>
+                    <input placeholder="Gender" type="text" name="gender"  value = ${member.getGender()} required >
+                </div>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input placeholder="Email" type="email" name="email" value = ${user.getEmail()} disabled >
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" value = ${user.getPassword()} required >
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input placeholder="Address" type="text" name="address" value = ${member.getAddress()} >
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Height (in meters)</label>
+                    <input placeholder="Height" type="text" name="height" value = ${member.getHeight()} required >
+                </div>
+                <div class="field">
+                    <label>Starting Weight (in kgs)</label>
+                    <input placeholder="Starting Weight" type="text" name="startWeight" value = ${member.getStartWeight()} required >
+                </div>
+            </div>
+            <button class="ui blue submit button">Update</button>
+        </form>
+    </div>
+    <div class="column">
+        <img class="ui image" src="/public/images/fitness-icons.jpg">
+    </div>
+</div>

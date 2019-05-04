@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Signup' /}
+#{welcomemenu id:"signup"/}
+
+<div class="ui two column grid basic middle aligned segment">
+    <div class="column">
+        <form class="ui stacked segment form" action="/register" method="POST">
+            <h3 class="ui header">Register</h3>
+            <div class="two fields">
+                <div class="field">
+                    <label>Name (max length 15 charachters)</label>
+                    <input placeholder="Name" type="text" name="name" required maxlength="15">
+                </div>
+                <div class="field">
+                    <label>Gender (M / F)</label>
+                    <input placeholder="Gender" type="text" name="gender" required>
+                </div>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input placeholder="Email" type="email" name="email" required>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input placeholder="Address" type="text" name="address" required>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Height (in meters)</label>
+                    <input placeholder="Height" type="text" name="height" required>
+                </div>
+                <div class="field">
+                    <label>Starting Weight (in kgs)</label>
+                    <input placeholder="Starting Weight" type="text" name="startWeight" required>
+                </div>
+            </div>
+            <button class="ui blue submit button">Submit</button>
+        </form>
+    </div>
+    <div class="column">
+        <img class="ui image" src="/public/images/fitness-icons.jpg">
+    </div>
+</div>
