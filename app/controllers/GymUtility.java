@@ -35,7 +35,7 @@ public class GymUtility {
         else return "INVALID";
     }
 
-    public static boolean isIdealBodyWeight(Member member, Assessment assessment) {         // is there stale data here????
+    public static boolean isIdealBodyWeight(Member member, Assessment assessment) {
         float bodyWeight;
         float currentWeight = assessment.getWeight();
         float heightInInches = member.getHeight() * (float) 39.37;
