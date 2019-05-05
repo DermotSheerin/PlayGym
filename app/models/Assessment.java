@@ -1,6 +1,9 @@
 package models;
 import play.db.jpa.Model;
 import javax.persistence.Entity;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class Assessment extends Model
@@ -12,6 +15,7 @@ public class Assessment extends Model
     private float waist;
     private float hips;
     private String comment;
+    private String date;
 
     public Assessment(float weight, float chest, float thigh, float upperArm, float waist, float hips, String comment)
     {
@@ -22,6 +26,18 @@ public class Assessment extends Model
         this.waist = waist;
         this.hips = hips;
         this.comment = comment;
+        this.date = returnDate();
+
+    }
+
+    public String returnDate() {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMMMM-yyyy HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public float getWeight() {

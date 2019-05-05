@@ -3,6 +3,7 @@
     <table class="ui celled table">
         <thead>
         <tr>
+            <th>Date</th>
             <th>Weight</th>
             <th>Chest</th>
             <th>Thigh</th>
@@ -16,6 +17,7 @@
         <tbody>
         #{list items:_member.assessmentList, as:'assessment'}
         <tr>
+            <td> ${assessment.getDate()} </td>
             <td> ${assessment.weight} </td>
             <td> ${assessment.chest} </td>
             <td> ${assessment.thigh} </td>
